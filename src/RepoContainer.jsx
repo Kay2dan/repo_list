@@ -16,11 +16,10 @@ const RepoList = ({ currentView,
                      data }) => {
     const renderRepos = ( currentView, data ) => {
         let totalReposToDisplay = currentView * 3;
-        let a = [];
+        let returnArr = [];
         data.forEach(( eachRepo, i ) => {
             if( i < totalReposToDisplay ){
-                console.log( "i is...",i, "--- totalReposToDisplay is...", totalReposToDisplay, "...", eachRepo.name );
-                a.push(   
+                returnArr.push(   
                     <tr key = {`${eachRepo.name}${i}`}>
                        <td>{ eachRepo.name }</td>
                        <td>{ eachRepo.stars }</td>
@@ -29,13 +28,8 @@ const RepoList = ({ currentView,
                );
             }
         });
-        return a;
-        // );
+        return returnArr;
     };
-
-    // let d = renderRepos( currentView, data );
-    // console.log( "d", d );
-
     return(
         <table className = "repoTable">
             <thead>
